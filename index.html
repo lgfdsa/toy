@@ -16,7 +16,7 @@
             const query = document.getElementById('searchInput').value;
             if (!query) return alert("검색어를 입력하세요!");
 
-            const response = await fetch(`http://localhost:3000/search?query=${encodeURIComponent(query)}`);
+            const response = await fetch(`http://localhost:8080/search?query=${encodeURIComponent(query)}`);
             const data = await response.json();
 
             const results = document.getElementById('results');
