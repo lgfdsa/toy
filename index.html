@@ -4,31 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>네이버 검색 API 테스트</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { padding: 10px; font-size: 16px; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+    </style>
 </head>
 <body>
-    <h1>가게 검색</h1>
+    <h1>네이버 검색 API 테스트</h1>
     <input type="text" id="searchInput" placeholder="가게명을 입력하세요">
     <button onclick="searchStore()">검색</button>
     <ul id="results"></ul>
 
-    <script>
-        async function searchStore() {
-            const query = document.getElementById('searchInput').value;
-            if (!query) return alert("검색어를 입력하세요!");
-
-            const response = await fetch(`http://localhost:8080/search?query=${encodeURIComponent(query)}`);
-            const data = await response.json();
-
-            const results = document.getElementById('results');
-            results.innerHTML = data.map(store => `
-                <li>
-                    <strong>${store.title}</strong><br>
-                    주소: ${store.address}<br>
-                    카테고리: ${store.category}<br>
-                    <a href="${store.link}" target="_blank">자세히 보기</a>
-                </li>
-            `).join('');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
